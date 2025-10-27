@@ -30,7 +30,13 @@ export default function Terminal() {
       onClick={handleTerminalClick}
     >
       <div className={styles.header}>
+        <div className={styles.windowControls}>
+          <button className={`${styles.controlButton} ${styles.close}`} aria-label="Close" />
+          <button className={`${styles.controlButton} ${styles.minimize}`} aria-label="Minimize" />
+          <button className={`${styles.controlButton} ${styles.maximize}`} aria-label="Maximize" />
+        </div>
         <div className={styles.title}>Terminal - antondj@portfolio</div>
+        <div style={{ width: '52px' }}></div> {/* Spacer for centering title */}
       </div>
 
       <div className={styles.content}>
