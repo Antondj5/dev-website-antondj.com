@@ -1,0 +1,74 @@
+/* Output Component Styles */
+
+.welcome {
+  margin-bottom: var(--padding-base);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.banner {
+  color: var(--prompt-color);
+  margin-bottom: var(--padding-small);
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+.welcomeText {
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.command {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.commandText {
+  color: var(--text-color);
+  word-break: break-all;
+  flex: 1;
+}
+
+.output {
+  margin-left: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.output pre {
+  white-space: pre-wrap;
+  margin: 0;
+  font-family: inherit;
+}
+
+.error {
+  color: var(--error-color);
+  margin-bottom: 0.5rem;
+}
+
+.error pre {
+  white-space: pre-wrap;
+  margin: 0;
+  font-family: inherit;
+}
+
+/* Animated typing effect */
+.animate {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .banner {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    font-size: 0.6em;
+  }
+}

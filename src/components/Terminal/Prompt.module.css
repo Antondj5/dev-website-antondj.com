@@ -1,0 +1,28 @@
+/* Prompt Component Styles */
+
+.prompt {
+  color: var(--prompt-color);
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  user-select: none;
+}
+
+.user {
+  color: var(--prompt-color);
+}
+
+.separator {
+  color: var(--text-color);
+  margin: 0 2px;
+}
+
+.directory {
+  color: var(--directory-color);
+}
+
+.dollar {
+  color: var(--text-color);
+  margin-left: 2px;
+}

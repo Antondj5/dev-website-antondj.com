@@ -1,0 +1,129 @@
+{
+  "type": "directory",
+  "name": "antondj",
+  "path": "/home/antondj",
+  "children": {
+    "README.txt": {
+      "type": "file",
+      "name": "README.txt",
+      "content": "Welcome to Anton's Portfolio Terminal!\n\nThis is an interactive portfolio website styled as a Unix terminal emulator.\nNavigate through the file system to explore information about me, my projects,\nand my experience.\n\nQuick Start Guide:\n------------------\n• Type 'help' to see all available commands\n• Type 'ls' to list files and directories\n• Type 'cd <directory>' to navigate\n• Type 'cat <file>' to read file contents\n• Type 'clear' to clear the terminal\n\nSuggested Commands:\n------------------\n• cat About/bio.txt       - Learn about me\n• ls projects             - View my projects\n• cat resume/resume.txt   - Read my resume\n• cat misc/contact.txt    - Get in touch\n\nTip: Use TAB for autocompletion and ↑/↓ arrows for command history!\n\nEnjoy exploring! 🚀",
+      "size": 756
+    },
+    "About": {
+      "type": "directory",
+      "name": "About",
+      "children": {
+        "bio.txt": {
+          "type": "file",
+          "name": "bio.txt",
+          "content": "Hi! I'm Anton DJ\n\n[Add your bio here - 200-300 words about yourself, your background,\npassions, and what drives you as a developer/professional]\n\nExample:\nI'm a passionate full-stack developer with a love for creating\ninnovative web applications. With X years of experience in software\ndevelopment, I specialize in building scalable, user-friendly solutions\nthat solve real-world problems.\n\nMy journey in tech started...\n[Continue with your story]",
+          "size": 450
+        },
+        "skills.txt": {
+          "type": "file",
+          "name": "skills.txt",
+          "content": "Technical Skills\n================\n\nProgramming Languages:\n• JavaScript/TypeScript\n• Python\n• Java\n• HTML/CSS\n• [Add your languages]\n\nFrameworks & Libraries:\n• React.js\n• Node.js\n• Express.js\n• [Add your frameworks]\n\nTools & Technologies:\n• Git/GitHub\n• Docker\n• AWS/Cloud Services\n• [Add your tools]\n\nDatabases:\n• MongoDB\n• PostgreSQL\n• MySQL\n• [Add your databases]\n\nOther Skills:\n• Agile/Scrum\n• RESTful APIs\n• UI/UX Design\n• [Add other skills]",
+          "size": 520
+        },
+        "interests.txt": {
+          "type": "file",
+          "name": "interests.txt",
+          "content": "Interests & Hobbies\n==================\n\n[Add your interests here]\n\nExamples:\n• Open Source Contribution\n• Machine Learning & AI\n• Music Production\n• Photography\n• Gaming\n• Reading Tech Blogs\n• Hiking & Outdoor Activities\n\nCurrently Learning:\n• [Technology/Skill 1]\n• [Technology/Skill 2]\n• [Technology/Skill 3]",
+          "size": 310
+        }
+      }
+    },
+    "projects": {
+      "type": "directory",
+      "name": "projects",
+      "children": {
+        "README.txt": {
+          "type": "file",
+          "name": "README.txt",
+          "content": "Projects Directory\n==================\n\nThis directory contains information about my various projects.\nEach project has its own subdirectory with details.\n\nTo explore a project:\n1. cd into the project directory\n2. Read the description.txt file\n3. View screenshots with 'open' command\n4. Check out the demo/live site links\n\nFeatured Projects:\n• project1 - [Project Name]\n• project2 - [Project Name]\n\nTip: Use 'ls' to see all available projects!",
+          "size": 450
+        },
+        "project1": {
+          "type": "directory",
+          "name": "project1",
+          "children": {
+            "description.txt": {
+              "type": "file",
+              "name": "description.txt",
+              "content": "Project Name: [Your Project Name]\n=================================\n\nOverview:\n[Brief description of what the project does]\n\nTech Stack:\n• Frontend: React, CSS Modules\n• Backend: Node.js, Express\n• Database: MongoDB\n• [Other technologies]\n\nKey Features:\n• Feature 1\n• Feature 2\n• Feature 3\n\nChallenges & Solutions:\n[Describe interesting challenges you faced and how you solved them]\n\nOutcome:\n[Impact, results, or achievements]\n\nLinks:\n• GitHub: https://github.com/yourusername/project\n• Live Demo: https://yourproject.com\n\nNote: Use 'open screenshot.png' to view project screenshot",
+              "size": 650
+            },
+            "demo.txt": {
+              "type": "file",
+              "name": "demo.txt",
+              "content": "Live Demo Information\n=====================\n\nDemo URL: https://yourproject.com\nGitHub: https://github.com/yourusername/project\n\nTest Credentials (if applicable):\nUsername: demo\nPassword: demo123\n\nInstructions:\n1. [Step 1 to explore the demo]\n2. [Step 2]\n3. [Step 3]",
+              "size": 280
+            }
+          }
+        },
+        "project2": {
+          "type": "directory",
+          "name": "project2",
+          "children": {
+            "description.txt": {
+              "type": "file",
+              "name": "description.txt",
+              "content": "Project Name: [Your Second Project]\n===================================\n\n[Add your project details here following the same structure as project1]",
+              "size": 150
+            }
+          }
+        }
+      }
+    },
+    "resume": {
+      "type": "directory",
+      "name": "resume",
+      "children": {
+        "resume.txt": {
+          "type": "file",
+          "name": "resume.txt",
+          "content": "ANTON DJ\n========\n\nContact: your.email@example.com\nGitHub: github.com/yourusername\nLinkedIn: linkedin.com/in/yourprofile\nWebsite: yourwebsite.com\n\nPROFESSIONAL SUMMARY\n-------------------\n[2-3 sentences about your professional background and expertise]\n\nEXPERIENCE\n----------\n\nSenior Software Engineer | Company Name | 2022 - Present\n• [Achievement/Responsibility 1]\n• [Achievement/Responsibility 2]\n• [Achievement/Responsibility 3]\n\nSoftware Engineer | Previous Company | 2020 - 2022\n• [Achievement/Responsibility 1]\n• [Achievement/Responsibility 2]\n• [Achievement/Responsibility 3]\n\nEDUCATION\n---------\n\nBachelor of Science in Computer Science\nUniversity Name | Year\n\nCERTIFICATIONS\n--------------\n• [Certification 1]\n• [Certification 2]\n\nSKILLS\n------\nJavaScript, React, Node.js, Python, SQL, Git, Docker, AWS\n[Add more skills]\n\nNote: Download PDF version with 'wget resume.pdf'",
+          "size": 850
+        },
+        "experience.txt": {
+          "type": "file",
+          "name": "experience.txt",
+          "content": "Professional Experience\n======================\n\nCOMPANY 1 - Senior Software Engineer\nDates: January 2022 - Present\nLocation: [City, Country/Remote]\n\nResponsibilities:\n• Led development of [project/feature]\n• Mentored junior developers\n• Architected scalable solutions\n• [Add more responsibilities]\n\nKey Achievements:\n• [Achievement 1]\n• [Achievement 2]\n• [Achievement 3]\n\nTechnologies Used:\nReact, TypeScript, Node.js, AWS, Docker\n\n---\n\nCOMPANY 2 - Software Engineer\nDates: June 2020 - December 2021\nLocation: [City, Country/Remote]\n\nResponsibilities:\n• [Responsibility 1]\n• [Responsibility 2]\n• [Responsibility 3]\n\nKey Achievements:\n• [Achievement 1]\n• [Achievement 2]\n\nTechnologies Used:\nJavaScript, React, MongoDB, Express.js",
+          "size": 780
+        },
+        "resume.pdf": {
+          "type": "file",
+          "name": "resume.pdf",
+          "content": "",
+          "downloadUrl": "/assets/pdfs/resume.pdf",
+          "mimeType": "application/pdf",
+          "size": 0
+        }
+      }
+    },
+    "misc": {
+      "type": "directory",
+      "name": "misc",
+      "children": {
+        "contact.txt": {
+          "type": "file",
+          "name": "contact.txt",
+          "content": "Contact Information\n===================\n\nFeel free to reach out! I'm always open to discussing new\nprojects, creative ideas, or opportunities.\n\nEmail: your.email@example.com\nLinkedIn: linkedin.com/in/yourprofile\nGitHub: github.com/yourusername\nTwitter: @yourhandle\n\nPreferred Contact Method:\nEmail is the best way to reach me for professional inquiries.\nI typically respond within 24-48 hours.\n\nAvailable For:\n• Freelance projects\n• Full-time opportunities\n• Collaboration\n• Speaking engagements\n• Mentorship\n\nLet's connect! 🚀",
+          "size": 520
+        },
+        "hobbies.txt": {
+          "type": "file",
+          "name": "hobbies.txt",
+          "content": "Hobbies & Activities\n====================\n\nWhen I'm not coding, you can find me:\n\n• [Hobby 1] - [Brief description]\n• [Hobby 2] - [Brief description]\n• [Hobby 3] - [Brief description]\n• [Hobby 4] - [Brief description]\n\nRecent Adventures:\n• [Recent activity or achievement]\n• [Recent activity or achievement]\n\nFavorite Tech YouTubers/Podcasts:\n• [Name 1]\n• [Name 2]\n• [Name 3]",
+          "size": 420
+        },
+        "fun-facts.txt": {
+          "type": "file",
+          "name": "fun-facts.txt",
+          "content": "Fun Facts About Me\n==================\n\n• [Fun fact 1]\n• [Fun fact 2]\n• [Fun fact 3]\n• [Fun fact 4]\n• [Fun fact 5]\n\nFavorite Quote:\n\"[Your favorite inspirational or tech-related quote]\"\n- Author Name\n\nCoffee or Tea? ☕\n[Your answer and why]\n\nFavorite Programming Language:\n[Your answer and why]\n\nIf I weren't a developer:\n[What would you be doing?]",
+          "size": 380
+        }
+      }
+    }
+  }
+}

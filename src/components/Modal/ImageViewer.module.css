@@ -1,0 +1,27 @@
+/* ImageViewer Component Styles */
+
+.imageViewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .imageViewer {
+    max-width: 90vw;
+    max-height: 70vh;
+  }
+
+  .image {
+    max-height: 70vh;
+  }
+}
