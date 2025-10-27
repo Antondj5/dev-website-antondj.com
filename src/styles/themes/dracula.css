@@ -1,0 +1,12 @@
+/* Dracula Theme */
+[data-theme="dracula"] {
+  --bg-color: #282a36;
+  --text-color: #f8f8f2;
+  --prompt-color: #50fa7b;
+  --error-color: #ff5555;
+  --warning-color: #f1fa8c;
+  --cursor-color: #50fa7b;
+  --link-color: #8be9fd;
+  --directory-color: #bd93f9;
+  --file-color: #f8f8f2;
+}

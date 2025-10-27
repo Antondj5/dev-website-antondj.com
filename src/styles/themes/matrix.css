@@ -1,0 +1,12 @@
+/* Matrix Theme */
+[data-theme="matrix"] {
+  --bg-color: #000000;
+  --text-color: #00ff00;
+  --prompt-color: #00ff00;
+  --error-color: #ff0000;
+  --warning-color: #ffff00;
+  --cursor-color: #00ff00;
+  --link-color: #00ff88;
+  --directory-color: #00ff88;
+  --file-color: #00dd00;
+}

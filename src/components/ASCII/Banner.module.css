@@ -1,0 +1,27 @@
+/* Banner Component Styles */
+
+.banner {
+  margin-bottom: var(--padding-base);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.ascii {
+  color: var(--prompt-color);
+  font-size: 0.9em;
+  line-height: 1.2;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .ascii {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .ascii {
+    font-size: 0.5em;
+  }
+}
