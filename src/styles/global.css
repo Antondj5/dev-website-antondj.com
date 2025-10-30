@@ -35,7 +35,7 @@
   /* Typography - SF Mono for macOS look */
   --font-family: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', 'Courier', monospace;
   --font-size-base: 13px;
-  --line-height: 1.5;
+  --line-height: 1.2;
 
   /* Animation */
   --cursor-blink-speed: 1s;

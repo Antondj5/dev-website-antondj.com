@@ -1,15 +1,15 @@
 /* Output Component Styles */
 
 .welcome {
-  margin-bottom: var(--padding-base);
+  margin-bottom: 0.5rem;
   animation: fadeIn 0.5s ease-in;
 }
 
 .banner {
   color: var(--prompt-color);
-  margin-bottom: var(--padding-small);
+  margin-bottom: 0.3rem;
   font-size: 0.9em;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .welcomeText {
@@ -21,7 +21,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
 }
 
 .commandText {
@@ -32,7 +32,7 @@
 
 .output {
   margin-left: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   color: var(--text-color);
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -46,7 +46,7 @@
 
 .error {
   color: var(--error-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 
 .error pre {

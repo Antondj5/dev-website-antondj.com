@@ -1,17 +1,17 @@
 // Terminal Component
 // Main terminal container
 
-import { useEffect, useState, useRef, useCallback } from 'react';
-import { useTerminal } from '../../contexts/TerminalContext';
+import {useEffect, useState, useRef, useCallback} from 'react';
+import {useTerminal} from '../../contexts/TerminalContext';
 import Output from './Output';
 import Input from './Input';
 import styles from './Terminal.module.css';
 
-export default function Terminal() {
-  const { output, terminalRef, scrollToBottom } = useTerminal();
+export default function Terminal () {
+  const {output, terminalRef, scrollToBottom} = useTerminal();
   const windowRef = useRef(null);
-  const dragStateRef = useRef({ isDragging: false, offsetX: 0, offsetY: 0 });
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const dragStateRef = useRef({isDragging: false, offsetX: 0, offsetY: 0});
+  const [position, setPosition] = useState({x: 0, y: 0});
   const [windowState, setWindowState] = useState('normal'); // 'normal', 'minimized', 'maximized', 'closed'
   const [savedPosition, setSavedPosition] = useState(null);
 
@@ -44,16 +44,17 @@ export default function Terminal() {
     const viewportHeight = window.innerHeight;
 
     // Calculate min and max positions to keep window within viewport
-    const minX = -(windowRect.width / 2); // Allow half width off-screen on left
-    const maxX = viewportWidth - (windowRect.width / 2); // Allow half width off-screen on right
-    const minY = -(viewportHeight / 2); // Allow dragging to top of viewport
-    const maxY = viewportHeight - 40; // Keep at least title bar visible (40px)
+    const minX = -viewportWidth / 2;
+    +(windowRect.width / 2);// Allow half width off-screen on left
+    const maxX = viewportWidth / 2 //- (windowRect.width / 2); // Allow half width off-screen on right
+    const minY = -(viewportHeight / 2) + (windowRect.height / 2); // Allow dragging to top of viewport
+    const maxY = (viewportHeight / 2)
 
     // Clamp position within boundaries
     const clampedX = Math.max(minX, Math.min(maxX, newX));
     const clampedY = Math.max(minY, Math.min(maxY, newY));
 
-    setPosition({ x: clampedX, y: clampedY });
+    setPosition({x: clampedX, y: clampedY});
   }, []);
 
   const handleMouseUp = useCallback(() => {
@@ -101,7 +102,7 @@ export default function Terminal() {
       }
     } else {
       setSavedPosition(position);
-      setPosition({ x: 0, y: 0 });
+      setPosition({x: 0, y: 0});
       setWindowState('maximized');
     }
   };
@@ -142,7 +143,7 @@ export default function Terminal() {
       <div
         className={styles.header}
         onMouseDown={handleMouseDown}
-        style={{ cursor: windowState === 'maximized' ? 'default' : 'move' }}
+        style={{cursor: windowState === 'maximized' ? 'default' : 'move'}}
       >
         <div className={styles.windowControls}>
           <button
@@ -162,16 +163,17 @@ export default function Terminal() {
           />
         </div>
         <div className={styles.title}>Terminal - antondj@portfolio</div>
-        <div style={{ width: '52px' }}></div> {/* Spacer for centering title */}
+        <div style={{width: '52px'}}></div>
+        {/* Spacer for centering title */}
       </div>
 
       {windowState !== 'minimized' && (
         <div className={styles.content} ref={terminalRef}>
           {output.map((item, index) => (
-            <Output key={index} data={item} />
+            <Output key={index} data={item}/>
           ))}
 
-          <Input />
+          <Input/>
         </div>
       )}
     </div>

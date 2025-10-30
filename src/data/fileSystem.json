@@ -3,11 +3,47 @@
   "name": "antondj",
   "path": "/home/antondj",
   "children": {
+    ".bashrc": {
+      "type": "file",
+      "name": ".bashrc",
+      "content": "# ~/.bashrc: executed by bash for interactive shells.\n\n# Aliases\nalias ll='ls -la'\nalias la='ls -A'\nalias l='ls -CF'\n\n# Prompt customization\nexport PS1='\\u@\\h:\\w$ '\n\n# History settings\nexport HISTSIZE=1000\nexport HISTFILESIZE=2000\n\n# Welcome message\necho \"Welcome to Anton's Portfolio Terminal!\"\necho \"Type 'help' for available commands.\"",
+      "size": 350
+    },
+    ".profile": {
+      "type": "file",
+      "name": ".profile",
+      "content": "# ~/.profile: executed by the command interpreter for login shells.\n\n# Set PATH\nexport PATH=\"$HOME/bin:/usr/local/bin:/usr/bin:/bin\"\n\n# Default editor\nexport EDITOR=vim\n\n# Load .bashrc if it exists\nif [ -f ~/.bashrc ]; then\n    . ~/.bashrc\nfi",
+      "size": 280
+    },
+    ".gitconfig": {
+      "type": "file",
+      "name": ".gitconfig",
+      "content": "[user]\n    name = Anton De Jaeger\n    email = anton@antondj.com\n\n[core]\n    editor = vim\n    autocrlf = input\n\n[alias]\n    st = status\n    co = checkout\n    br = branch\n    ci = commit\n    lg = log --oneline --graph --all\n\n[color]\n    ui = auto",
+      "size": 250
+    },
+    ".ssh": {
+      "type": "directory",
+      "name": ".ssh",
+      "children": {
+        "authorized_keys": {
+          "type": "file",
+          "name": "authorized_keys",
+          "content": "# SSH authorized keys\n# Add your public SSH keys here\n",
+          "size": 60
+        },
+        "config": {
+          "type": "file",
+          "name": "config",
+          "content": "# SSH client configuration\n\nHost github.com\n    HostName github.com\n    User git\n    IdentityFile ~/.ssh/id_rsa\n\nHost *\n    ServerAliveInterval 60\n    ServerAliveCountMax 3",
+          "size": 180
+        }
+      }
+    },
     "README.txt": {
       "type": "file",
       "name": "README.txt",
-      "content": "Welcome to Anton's Portfolio Terminal!\n\nThis is an interactive portfolio website styled as a Unix terminal emulator.\nNavigate through the file system to explore information about me, my projects,\nand my experience.\n\nQuick Start Guide:\n------------------\n• Type 'help' to see all available commands\n• Type 'ls' to list files and directories\n• Type 'cd <directory>' to navigate\n• Type 'cat <file>' to read file contents\n• Type 'clear' to clear the terminal\n\nSuggested Commands:\n------------------\n• cat About/bio.txt       - Learn about me\n• ls projects             - View my projects\n• cat resume/resume.txt   - Read my resume\n• cat misc/contact.txt    - Get in touch\n\nTip: Use TAB for autocompletion and ↑/↓ arrows for command history!\n\nEnjoy exploring! 🚀",
-      "size": 756
+      "content": "Welcome to Anton's Portfolio Terminal!\n\nThis is an interactive portfolio website styled as a Unix terminal emulator.\nNavigate through the file system to explore information about me, my projects,\nand my experience.\n\nQuick Start Guide:\n------------------\n• Type 'help' to see all available commands\n• Type 'ls' to list files and directories\n• Type 'ls -a' to show hidden files\n• Type 'cd <directory>' to navigate\n• Type 'cat <file>' to read file contents\n• Type 'clear' to clear the terminal\n\nSuggested Commands:\n------------------\n• cat About/bio.txt       - Learn about me\n• ls projects             - View my projects\n• cat resume/resume.txt   - Read my resume\n• cat misc/contact.txt    - Get in touch\n• cat .bashrc             - View bash configuration\n\nTip: Use TAB for autocompletion and ↑/↓ arrows for command history!\n\nEnjoy exploring! 🚀",
+      "size": 820
     },
     "About": {
       "type": "directory",

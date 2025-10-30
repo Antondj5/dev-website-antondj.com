@@ -26,7 +26,16 @@ export function ls(args, flags, currentDir) {
     };
   }
 
-  const contents = fs.listDirectory(targetPath);
+  let contents = fs.listDirectory(targetPath);
+
+  if (contents.length === 0) {
+    return { type: 'text', content: '' };
+  }
+
+  // Filter hidden files unless -a flag is set
+  if (!flags.a) {
+    contents = contents.filter(item => !item.name.startsWith('.'));
+  }
 
   if (contents.length === 0) {
     return { type: 'text', content: '' };
@@ -124,6 +133,7 @@ Available Commands:
 
 Navigation:
   ls [path]              List directory contents
+  ls -a [path]           List all files (including hidden)
   cd <path>              Change directory
   pwd                    Print working directory
 
@@ -147,6 +157,7 @@ Tips:
 • Use TAB for autocompletion
 • Use ↑/↓ arrows for command history
 • Type 'cat README.txt' to get started
+• Try 'ls -a' to see hidden files
 `;
 
   return { type: 'text', content: helpText.trim() };
@@ -159,10 +170,10 @@ export function whoami() {
   const info = `
 antondj
 
-Full Name: Anton DJ
-Role: Software Developer
-Location: [Your Location]
-Website: [Your Website]
+Full Name: Anton De Jaeger
+Role: Integration Architect
+Location: Belgium
+Website: https://antondj.com
 
 "Building the web, one terminal command at a time."
 `;
@@ -342,10 +353,12 @@ export function wget(args, flags, currentDir) {
   }
 
   const metadata = fs.getFileMetadata(targetPath);
+  const fileContent = fs.readFile(targetPath);
 
   return {
     type: 'download',
-    content: `Downloading ${metadata.name}...`,
+    content: fileContent,
+    displayMessage: `Downloading ${metadata.name}...`,
     metadata
   };
 }
