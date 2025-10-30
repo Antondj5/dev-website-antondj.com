@@ -1,0 +1,48 @@
+/* macOS Terminal Theme */
+[data-theme="macos"] {
+  /* macOS Terminal colors - light mode */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --prompt-color: #000000;
+  --error-color: #e12424;
+  --warning-color: #f5a623;
+  --cursor-color: #000000;
+  --link-color: #007aff;
+  --directory-color: #007aff;
+  --file-color: #000000;
+
+  /* Window styling */
+  --window-bg: #f5f5f7;
+  --window-border: #d1d1d6;
+  --titlebar-bg: #ececec;
+  --titlebar-text: #000000;
+
+  /* Traffic lights (window controls) */
+  --traffic-close: #ff5f57;
+  --traffic-minimize: #ffbd2e;
+  --traffic-maximize: #28ca42;
+}
+
+/* macOS Dark Mode variant */
+[data-theme="macos-dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #ffffff;
+  --prompt-color: #ffffff;
+  --error-color: #ff453a;
+  --warning-color: #ffd60a;
+  --cursor-color: #ffffff;
+  --link-color: #0a84ff;
+  --directory-color: #0a84ff;
+  --file-color: #ffffff;
+
+  /* Window styling */
+  --window-bg: #2c2c2c;
+  --window-border: #3f3f3f;
+  --titlebar-bg: #2b2b2b;
+  --titlebar-text: #ffffff;
+
+  /* Traffic lights */
+  --traffic-close: #ff5f57;
+  --traffic-minimize: #ffbd2e;
+  --traffic-maximize: #28ca42;
+}

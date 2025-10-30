@@ -6,6 +6,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 const THEMES = {
+  macos: 'macos',
+  'macos-dark': 'macos-dark',
   matrix: 'matrix',
   dracula: 'dracula',
   default: 'default'
@@ -14,7 +16,7 @@ const THEMES = {
 const STORAGE_KEY = 'terminal_theme';
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(THEMES.default);
+  const [theme, setTheme] = useState(THEMES.macos);
 
   // Load theme from localStorage on mount
   useEffect(() => {

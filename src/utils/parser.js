@@ -88,9 +88,11 @@ export function validateCommand(parsedCommand, validCommands) {
 export function resolvePath(path, currentDir = '/home/antondj') {
   if (!path) return currentDir;
 
+  const ROOT_DIR = '/home/antondj';
+
   // Handle home directory
   if (path === '~' || path.startsWith('~/')) {
-    path = '/home/antondj' + path.slice(1);
+    path = ROOT_DIR + path.slice(1);
   }
 
   // Handle absolute path
@@ -102,11 +104,18 @@ export function resolvePath(path, currentDir = '/home/antondj') {
   const parts = currentDir.split('/').filter(Boolean);
   const pathParts = path.split('/').filter(Boolean);
 
+  // Track the minimum parts length (root is /home/antondj)
+  const rootParts = ROOT_DIR.split('/').filter(Boolean);
+  const minLength = rootParts.length;
+
   for (const part of pathParts) {
     if (part === '.') {
       continue; // Current directory
     } else if (part === '..') {
-      parts.pop(); // Parent directory
+      // Don't pop if we're at root directory
+      if (parts.length > minLength) {
+        parts.pop(); // Parent directory
+      }
     } else {
       parts.push(part);
     }
@@ -121,13 +130,22 @@ export function resolvePath(path, currentDir = '/home/antondj') {
  * @returns {string} Normalized path
  */
 export function normalizePath(path) {
+  const ROOT_DIR = '/home/antondj';
+
   // Split path and filter out empty parts
   const parts = path.split('/').filter(Boolean);
+
+  // Track the minimum parts length (root is /home/antondj)
+  const rootParts = ROOT_DIR.split('/').filter(Boolean);
+  const minLength = rootParts.length;
 
   const normalized = [];
   for (const part of parts) {
     if (part === '..') {
-      normalized.pop();
+      // Don't pop if we're at root directory
+      if (normalized.length > minLength) {
+        normalized.pop();
+      }
     } else if (part !== '.') {
       normalized.push(part);
     }

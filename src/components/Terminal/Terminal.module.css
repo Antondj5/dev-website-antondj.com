@@ -1,69 +1,270 @@
-/* Terminal Component Styles */
+/* Terminal Component Styles - macOS Window Style */
 
 .terminal {
-  width: 100%;
-  height: 100vh;
+  width: 900px;
+  height: 600px;
+  max-width: 90vw;
+  max-height: 85vh;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-family);
   font-size: var(--font-size-base);
-  padding: var(--padding-large);
-  overflow-y: auto;
-  overflow-x: hidden;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  resize: both;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .terminal:focus {
   outline: none;
 }
 
+/* Minimized state */
+.terminal.minimized {
+  height: 40px;
+  min-height: 40px;
+  resize: none;
+}
+
+.terminal.minimized .content {
+  display: none;
+}
+
+/* Maximized state */
+.terminal.maximized {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  border-radius: 0;
+  resize: none;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+.terminal.maximized::after {
+  display: none;
+}
+
+/* Closed state message */
+.closedMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.closedContent {
+  text-align: center;
+  color: white;
+  font-family: var(--font-family);
+}
+
+.closedIcon {
+  font-size: 64px;
+  margin-bottom: 1rem;
+}
+
+.closedContent p {
+  font-size: 24px;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.reopenButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reopenButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.header {
+  background-color: var(--titlebar-bg, #ececec);
+  border-bottom: 1px solid var(--window-border, #d1d1d6);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.windowControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.controlButton {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0);
+  transition: color 0.2s, filter 0.2s;
+}
+
+.windowControls:hover .controlButton {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.controlButton:hover {
+  filter: brightness(0.9);
+}
+
+.controlButton:active {
+  filter: brightness(0.8);
+}
+
+.close {
+  background-color: var(--traffic-close, #ff5f57);
+}
+
+.close::before {
+  content: '×';
+  font-size: 10px;
+  line-height: 1;
+}
+
+.minimize {
+  background-color: var(--traffic-minimize, #ffbd2e);
+}
+
+.minimize::before {
+  content: '−';
+  font-size: 10px;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+.maximize {
+  background-color: var(--traffic-maximize, #28ca42);
+}
+
+.maximize::before {
+  content: '⤢';
+  font-size: 8px;
+  line-height: 1;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--titlebar-text, #000000);
+  opacity: 0.8;
+  user-select: none;
+}
+
 .content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.header {
-  border-bottom: 1px solid var(--text-color);
-  padding-bottom: var(--padding-small);
-  margin-bottom: var(--padding-base);
-  opacity: 0.7;
-}
-
-.title {
-  font-weight: bold;
-  color: var(--prompt-color);
+  gap: 0.15rem;
+  padding: var(--padding-large);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
 }
 
 /* Scrollbar customization */
-.terminal::-webkit-scrollbar {
+.content::-webkit-scrollbar {
   width: 8px;
 }
 
-.terminal::-webkit-scrollbar-track {
-  background: var(--bg-color);
+.content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.terminal::-webkit-scrollbar-thumb {
-  background: var(--text-color);
+.content::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.3);
   border-radius: 4px;
 }
 
-.terminal::-webkit-scrollbar-thumb:hover {
-  background: var(--prompt-color);
+.content::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+/* Resize handle indicator */
+.terminal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 50%, rgba(128, 128, 128, 0.2) 50%);
+  border-bottom-right-radius: 10px;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .terminal {
+    width: 95vw;
+    height: 70vh;
+    resize: none;
+  }
+
+  .content {
     padding: var(--padding-base);
+  }
+
+  .title {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .terminal {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    resize: none;
+  }
+
+  .content {
     padding: var(--padding-small);
+  }
+
+  .header {
+    padding: 8px;
+  }
+
+  .controlButton {
+    width: 10px;
+    height: 10px;
   }
 }

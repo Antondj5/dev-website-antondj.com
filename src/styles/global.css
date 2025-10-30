@@ -1,5 +1,8 @@
 /* Global Styles & CSS Variables */
 
+/* Import SF Mono font (macOS terminal font) */
+@import url('https://fonts.cdnfonts.com/css/sf-mono');
+
 :root {
   /* Color Theme Variables */
   --bg-color: #000000;
@@ -12,16 +15,27 @@
   --directory-color: #5599ff;
   --file-color: #ffffff;
 
+  /* Window styling */
+  --window-bg: #f5f5f7;
+  --window-border: #d1d1d6;
+  --titlebar-bg: #ececec;
+  --titlebar-text: #000000;
+
+  /* Traffic lights (window controls) */
+  --traffic-close: #ff5f57;
+  --traffic-minimize: #ffbd2e;
+  --traffic-maximize: #28ca42;
+
   /* Spacing & Layout */
   --padding-base: 1rem;
   --padding-small: 0.5rem;
   --padding-large: 2rem;
   --border-radius: 0.5rem;
 
-  /* Typography */
-  --font-family: 'Courier New', 'Courier', monospace;
-  --font-size-base: 16px;
-  --line-height: 1.5;
+  /* Typography - SF Mono for macOS look */
+  --font-family: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', 'Courier', monospace;
+  --font-size-base: 13px;
+  --line-height: 1.2;
 
   /* Animation */
   --cursor-blink-speed: 1s;
@@ -50,15 +64,30 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: var(--line-height);
-  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Selection Styles */
