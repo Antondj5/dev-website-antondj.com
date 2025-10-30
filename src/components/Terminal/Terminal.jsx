@@ -35,7 +35,25 @@ export default function Terminal() {
     const newX = e.clientX - dragStateRef.current.offsetX;
     const newY = e.clientY - dragStateRef.current.offsetY;
 
-    setPosition({ x: newX, y: newY });
+    // Get window dimensions
+    const windowRect = windowRef.current?.getBoundingClientRect();
+    if (!windowRect) return;
+
+    // Calculate viewport boundaries
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Calculate min and max positions to keep window within viewport
+    const minX = -(windowRect.width / 2); // Allow half width off-screen on left
+    const maxX = viewportWidth - (windowRect.width / 2); // Allow half width off-screen on right
+    const minY = 0; // Keep top edge visible
+    const maxY = viewportHeight - 40; // Keep at least title bar visible (40px)
+
+    // Clamp position within boundaries
+    const clampedX = Math.max(minX, Math.min(maxX, newX));
+    const clampedY = Math.max(minY, Math.min(maxY, newY));
+
+    setPosition({ x: clampedX, y: clampedY });
   }, []);
 
   const handleMouseUp = useCallback(() => {
