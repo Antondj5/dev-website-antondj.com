@@ -1,7 +1,7 @@
 // Terminal Component
 // Main terminal container
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useTerminal } from '../../contexts/TerminalContext';
 import Output from './Output';
 import Input from './Input';
@@ -10,8 +10,7 @@ import styles from './Terminal.module.css';
 export default function Terminal() {
   const { output, terminalRef, scrollToBottom } = useTerminal();
   const windowRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const dragStateRef = useRef({ isDragging: false, offsetX: 0, offsetY: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [windowState, setWindowState] = useState('normal'); // 'normal', 'minimized', 'maximized', 'closed'
   const [savedPosition, setSavedPosition] = useState(null);
@@ -29,41 +28,35 @@ export default function Terminal() {
     }
   };
 
-  // Window dragging handlers
+  // Window dragging handlers - optimized with useCallback and useRef
+  const handleMouseMove = useCallback((e) => {
+    if (!dragStateRef.current.isDragging) return;
+
+    const newX = e.clientX - dragStateRef.current.offsetX;
+    const newY = e.clientY - dragStateRef.current.offsetY;
+
+    setPosition({ x: newX, y: newY });
+  }, []);
+
+  const handleMouseUp = useCallback(() => {
+    dragStateRef.current.isDragging = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  }, [handleMouseMove]);
+
   const handleMouseDown = (e) => {
     if (windowState === 'maximized') return; // Can't drag when maximized
 
     // Calculate offset from mouse position to current window position
-    setDragOffset({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
-    });
-    setIsDragging(true);
+    dragStateRef.current = {
+      isDragging: true,
+      offsetX: e.clientX - position.x,
+      offsetY: e.clientY - position.y
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
   };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-
-    const newX = e.clientX - dragOffset.x;
-    const newY = e.clientY - dragOffset.y;
-
-    setPosition({ x: newX, y: newY });
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
-      return () => {
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('mouseup', handleMouseUp);
-      };
-    }
-  }, [isDragging, dragOffset]);
 
   // Window control handlers
   const handleClose = (e) => {
