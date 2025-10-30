@@ -46,7 +46,7 @@ export default function Terminal() {
     // Calculate min and max positions to keep window within viewport
     const minX = -(windowRect.width / 2); // Allow half width off-screen on left
     const maxX = viewportWidth - (windowRect.width / 2); // Allow half width off-screen on right
-    const minY = 0; // Keep top edge visible
+    const minY = -(viewportHeight / 2); // Allow dragging to top of viewport
     const maxY = viewportHeight - 40; // Keep at least title bar visible (40px)
 
     // Clamp position within boundaries

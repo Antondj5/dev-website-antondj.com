@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
 }
 
 .input {
@@ -21,21 +22,12 @@
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   padding: 0;
-  caret-color: transparent;
+  caret-color: var(--cursor-color);
 }
 
 .input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.cursor {
-  display: inline-block;
-  width: 0.6em;
-  height: 1.2em;
-  background-color: var(--cursor-color);
-  animation: blink var(--cursor-blink-speed) infinite;
-  margin-left: -0.6em;
 }
 
 .suggestions {

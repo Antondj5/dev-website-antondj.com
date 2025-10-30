@@ -119,7 +119,6 @@ export default function Input() {
           autoCorrect="off"
           autoCapitalize="off"
         />
-        <span className={styles.cursor} />
       </div>
 
       {suggestions.length > 0 && (
