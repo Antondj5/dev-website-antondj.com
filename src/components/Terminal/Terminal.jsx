@@ -14,7 +14,6 @@ export default function Terminal() {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [windowState, setWindowState] = useState('normal'); // 'normal', 'minimized', 'maximized', 'closed'
-  const [savedSize, setSavedSize] = useState(null);
   const [savedPosition, setSavedPosition] = useState(null);
 
   // Auto-scroll to bottom when output changes
@@ -34,10 +33,10 @@ export default function Terminal() {
   const handleMouseDown = (e) => {
     if (windowState === 'maximized') return; // Can't drag when maximized
 
-    const rect = windowRef.current.getBoundingClientRect();
+    // Calculate offset from mouse position to current window position
     setDragOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      x: e.clientX - position.x,
+      y: e.clientY - position.y
     });
     setIsDragging(true);
   };
